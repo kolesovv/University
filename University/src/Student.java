@@ -1,6 +1,5 @@
 import Exceptions.BelowZeroAboveTen;
 import Exceptions.LackStudents;
-
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -22,14 +21,6 @@ public class Student {
         this.name = name;
     }
 
-    private Map<String, List<Integer>> getAcademicPerformance() {
-        return academicPerformance;
-    }
-
-    public void setAcademicPerformance(Map<String, List<Integer>> academicPerformance) {
-        this.academicPerformance = academicPerformance;
-    }
-
     public Map<String, List<Integer>> getPerformance() {
         try {
             if (academicPerformance.keySet().isEmpty()){
@@ -42,7 +33,7 @@ public class Student {
         return academicPerformance;
     }
 
-    public static void rateStudent(Student student, String subject, int value){
+    public void rateStudent(Student student, String subject, int value){
         try{
             if (value < 0 || value > 10){
                 throw new BelowZeroAboveTen("Оценка ниже 0 или выше 10.", value);
@@ -58,8 +49,8 @@ public class Student {
     }
 
     // Посчитать средний балл по всем предметам студента
-    public static float averagePerformance(Student student){
-        int summaryRate = 0;
+    public float averagePerformance(Student student){
+        float summaryRate = 0.0f;
         int summaryNumberOfRatings = 0;
         for (Map.Entry<String, List<Integer>> entry : student.academicPerformance.entrySet()
              ) {
@@ -69,11 +60,11 @@ public class Student {
                 summaryRate += currentRate;
             }
         }
-        return (float)summaryRate / summaryNumberOfRatings;
+        return summaryRate / summaryNumberOfRatings;
     }
 
     public static float averagePerformance(Student student, String subject){
-        int summaryRate = 0;
+        float summaryRate = 0.0f;
         int summaryNumberOfRatings = 0;
         for (Map.Entry<String, List<Integer>> entry : student.academicPerformance.entrySet()
         ) {
@@ -85,7 +76,7 @@ public class Student {
                 }
             }
         }
-        return (float)summaryRate / summaryNumberOfRatings;
+        return summaryRate / summaryNumberOfRatings;
     }
 
     // Посчитать средний балл по конкретному предмету в конкретной группе и на конкретном факультете

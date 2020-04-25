@@ -1,21 +1,15 @@
 import Exceptions.LackStudents;
-
 import java.util.ArrayList;
 import java.util.List;
 
 public class Group {
     private List<Student> currentGroup = new ArrayList<>();
-    private static List<Student> allStudents = new ArrayList<>();
 
     public Group() {
     }
 
     public List<Student> getCurrentGroup() {
         return currentGroup;
-    }
-
-    public static List<Student> getAllStudents() {
-        return allStudents;
     }
 
     public Student findStudent (String name){

@@ -1,6 +1,5 @@
 import Exceptions.LackDepartments;
 import Exceptions.LackGroups;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -11,7 +10,6 @@ public class Department {
     private String tagDepartment;
 
     public Department() {
-
     }
 
     public List<Group> getDepartment() {
@@ -46,7 +44,7 @@ public class Department {
         departmentList.add(department);
     }
 
-    public static float averagePerformance (String subject){
+    public static float averagePerformance(String subject){
         float summaryRate = 0.0f;
         int summaryNumberOfRatings = 0;
         try {
